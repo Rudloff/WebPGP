@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<head>
+    <meta charset="utf-8" />
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/jquery-mobile-bower/js/jquery.mobile-1.4.2.min.js"></script>
+    <script src="js/openpgp.min.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="bower_components/jquery-mobile-bower/css/jquery.mobile-1.4.2.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebPGP</title>
+</head>
+<body>
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1>WebPGP</h1>
+            <a href="#addContactDialog" data-icon="user" data-iconpos="notext" title="Add contact" class="ui-btn-right">Add contact</a>
+        </div>
+        <div data-role="content">
+            <ul class="contacts"  data-role="listview">
+                <li data-role="list-divider" class="contacts_divider">Contacts</li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="page" data-dialog="true" id="addContactDialog">
+        <div data-role="header">
+            <h2>Add contact</h2>
+        </div>
+        <div data-role="content">
+            <form action="#home">
+            <ul data-role="listview">
+                <li data-role="fieldcontain"><label for="keybaseid">Keybase ID</label><input autocomplete="off" id="keybaseid" type="text" /></li>
+                <li data-role="list-divider">or</li>
+                <li data-role="fieldcontain"><label for="contactname">GPG key</label><input id="contactname" type="text" /></li>
+                <li data-role="fieldcontain"><label for="gpgkey">GPG key</label><textarea id="gpgkey" ></textarea></li>
+                <li data-role="fieldcontain"><input type="submit" id="addContact" value="Add" /></li>
+            </ul>
+            </form>
+        </div>
+    </div>
+    <div data-role="page" data-dialog="true" id="contactInfoDialog" data-close-btn="none">
+        <div data-role="header">
+            <a data-role="button" data-icon="delete" data-iconpos="notext" href="#home">Back</a>
+            <h1 class="contactname"></h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" class="identities">
+                <li data-role="list-divider" class='identities_header'>Identities</li>
+                <li data-role="list-divider">Fingerprint</li>
+                <li class="fingerprint"></li>
+                <li data-role="list-divider">Actions</li>
+                <li><a class='encryptDialog' href="#encryptDialog">Encrypt message</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="page" data-dialog="true" id="encryptDialog" data-close-btn="none">
+        <div data-role="header">
+            <a data-role="button" data-icon="back" data-iconpos="notext" href="#contactInfoDialog">Back</a>
+            <h1 class="encryptFor"></h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="fieldcontain"><label for="message">Message</label><textarea id="message"></textarea></li>
+                <li data-icon="lock"><a class='encryptMsg' href="#sendDialog">Encrypt</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="page" data-dialog="true" id="sendDialog" data-close-btn="none">
+        <div data-role="header">
+            <a data-role="button" data-icon="back" data-iconpos="notext" href="#encryptDialog">Back</a>
+            <h1 class="sendFor"></h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li data-role="fieldcontain"><label for="email">Email</label><select id="email"></select></li>
+                <li data-role="fieldcontain"><label for="encrypted_message">Message</label><textarea readonly id="encrypted_message"></textarea></li>
+                <li data-icon="mail"><a class='sendMail'>Send by mail</a></li>
+                <li data-icon="mail"><a class='sendSMS'>Send by SMS</a></li>
+            </ul>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,8 @@
+{
+    "name": "keyfox",
+    "version": "0.1",
+    "dependencies": {
+        "jquery": "latest",
+        "jquery-mobile-bower": "1.4.2"
+    }
+}

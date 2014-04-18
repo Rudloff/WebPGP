@@ -1,0 +1,10 @@
+{
+    "name": "WebPGP",
+    "description": "PGP for the browser",
+    "developer": {
+        "name": "Pierre Rudloff",
+        "url": "https://rudloff.pro/"
+    },
+    "default_locale": "en",
+    "launch_path": "/index.html"
+}
