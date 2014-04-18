@@ -162,6 +162,7 @@ function addContactKey(name, key) {
         }
         contacts[name] = key;
         localStorage.setItem('contacts', JSON.stringify(contacts));
+        initHomeView();
     }
 }
 
